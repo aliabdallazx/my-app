@@ -1,28 +1,33 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Button from "@mui/material/Button";
 import MainContent from "./components/MainContent";
-import { Container } from "@mui/material";
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
-		<>
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "center",
-					width: "100vw",
-				}}
-			>
-				<Container maxWidth="xl">
-					<MainContent />
-				</Container>
-			</div>
-		</>
+		<div className="app-shell">
+			<header className="navbar">
+				<a className="brand" href="#home" aria-label="Rwanda prayer times home">
+					<span className="brand-mark">PT</span>
+					<span>
+						<strong>Prayer Times</strong>
+						<small>Rwanda</small>
+					</span>
+				</a>
+
+				<nav className="nav-links" aria-label="Primary navigation">
+					<a href="#home">Home</a>
+					<a href="#schedule">Schedule</a>
+					<a href="#location">Location</a>
+				</nav>
+			</header>
+
+			<main id="home" className="main-layout">
+				<MainContent />
+			</main>
+
+			<footer className="footer">
+				<p>Designed and developed by ALZAIM ALI</p>
+			</footer>
+		</div>
 	);
 }
 

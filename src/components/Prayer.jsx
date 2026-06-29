@@ -1,23 +1,22 @@
-import * as React from "react";
+/* eslint-disable react/prop-types */
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function MediaCard({ name, time, image }) {
+export default function Prayer({ name, time, image, isNext }) {
 	return (
-		<Card sx={{ width: "14vw" }}>
-			<CardMedia
-				sx={{ height: 140 }}
-				image={image}
-				title="green iguana"
-			/>
-			<CardContent>
-				<h2>{name}</h2>
+		<Card className={`prayer-card ${isNext ? "is-next" : ""}`}>
+			<CardMedia className="prayer-image" image={image} title={`${name} prayer`} />
+			<CardContent className="prayer-content">
+				<div>
+					<Typography component="h3" className="prayer-name">
+						{name}
+					</Typography>
+					{isNext && <span className="next-badge">Next</span>}
+				</div>
 
-				<Typography variant="h1" color="text.secondary">
+				<Typography component="p" className="prayer-time">
 					{time}
 				</Typography>
 			</CardContent>
